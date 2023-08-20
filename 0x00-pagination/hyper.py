@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 import requests
-
+from os import getenv
 # Replace 'YOUR_TOKEN' with your GitHub personal access token
-TOKEN = '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'
+TOKEN = getenv('token')
 
 # Initial API endpoint for listing repositories
 url = 'https://api.github.com/user/repos'
