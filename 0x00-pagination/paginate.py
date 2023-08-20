@@ -19,10 +19,12 @@ print(paged_data)
 
 # Paginating list of names
 names = ['Al-Areef', 'Ayompo', 'Adegbite', 'Aa`isha', 'Al-Ameen', 'Biggie', 'Brr tob', 'Nuccas']
-print(len(names))
+name = ('Al-Areef', 'Ayompo', 'Adegbite', 'Aa`isha', 'Al-Ameen', 'Biggie', 'Brr tob', 'Nuccas')
+
+print(len(name))
 page = 1
 page_size = 5
 start = (page -1) * page_size
 end = start + page_size
-data = names[start:end]
+data = name[start:end]
 print(data)
