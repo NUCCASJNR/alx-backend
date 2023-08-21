@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 
-import csv
-import math
-from typing import List, Tuple
 """
 Simple pagination with class
 """
+
+import csv
+import math
+from typing import List, Tuple
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, ...]:
