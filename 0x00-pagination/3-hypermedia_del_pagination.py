@@ -40,8 +40,14 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-            """
-            Args:
-                index: int current index of the starting page
-                
-            """
+        """
+        Args:
+            index: int current index of the starting page
+            page_size: items returned
+        Returns:
+            index: the current start index of the return page.
+            next_index: the next index to query with.
+            page_size: the current page size
+            data: the actual page of the dataset
+        """
+        
