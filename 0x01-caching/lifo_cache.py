@@ -36,8 +36,12 @@ class LIFOCache:
         self.queue.append(key)
 
     def print_cache(self):
-        """print cache"""
-        print(self.cache)
+        """ Print the cache
+        """
+        print("Current cache:")
+        for key in sorted(self.cache.keys()):
+            print("{}: {}".format(key, self.cache.get(key)))
+
 
     def print_queue(self):
         """print queue"""
