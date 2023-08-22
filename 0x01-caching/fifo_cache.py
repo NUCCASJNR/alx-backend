@@ -22,7 +22,7 @@ class FIFOCache:
         
         # Add the new item to the cache and the queue
         self.cache[key] = value
-        self.queue.append(key)
+        # self.queue.append(key)
 
     def print_cache(self):
         """print cache"""
