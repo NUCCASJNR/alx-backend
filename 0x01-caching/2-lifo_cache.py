@@ -9,11 +9,11 @@ from collections import deque
 
 
 class LIFOCache(BaseCaching):
-    def __init__(self):
-        """
+    """
         LIFOcache class that uses the LIFO algorithm and inherits from
         Basecaching
-        """
+    """
+    def __init__(self):
         super().__init__()
         self.queue = deque()
         self.cache_data = {}
