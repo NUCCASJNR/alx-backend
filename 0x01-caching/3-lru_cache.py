@@ -5,7 +5,7 @@ Contains a LRUCaching class
 """
 
 from base_caching import BaseCaching
-from collections import deque, OrderedDict
+from collections import OrderedDict
 
 
 class LRUCache(BaseCaching):
@@ -38,7 +38,7 @@ class LRUCache(BaseCaching):
                 # pop it out from both the ordered dict and the usual dict
                 self.cache_data.pop(removed)
                 self.data.pop(removed)
-            # Add the key-value pair to he two dicts
+            # Add the key-value pair to the two dicts
             self.cache_data[key] = item
             self.data[key] = item
             self.data.move_to_end(key)
@@ -48,7 +48,7 @@ class LRUCache(BaseCaching):
         Retrieves the value of the key provided from the dict
         Returns none if the key is empty or is not valid key in the dict
         """
-        if key is not None and key in self.cache_data:
+        if key in self.data:
             self.data.move_to_end(key)
             return self.cache_data[key]
         elif not key or key not in self.cache_data:
