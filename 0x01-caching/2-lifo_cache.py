@@ -16,6 +16,7 @@ class LIFOCache(BaseCaching):
         """
         super().__init__()
         self.queue = deque()
+        self.cache_data = {}
 
     def put(self, key, item):
         """
