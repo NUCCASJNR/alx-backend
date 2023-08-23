@@ -15,6 +15,7 @@ class FIFOCache(BaseCaching):
     def __init__(self):
         super().__init__()
         self.queue = deque()
+        self.cache_data = {}
 
     def put(self, key, item):
         """
@@ -24,11 +25,14 @@ class FIFOCache(BaseCaching):
             item: Value of the added key
         """
         if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-            removed_item = self.queue.popleft()
-            self.cache_data.pop(removed_item)
-        else:
-            self.cache_data[key] = item
-            self.queue.append(key)
+            if self.queue:
+                removed_item = self.queue.popleft()
+                self.cache_data.pop(removed_item)
+                print(f"DISCARD: {removed_item}")
+            else:
+                pass
+        self.cache_data[key] = item
+        self.queue.append(key)
 
     def get(self, key):
         """

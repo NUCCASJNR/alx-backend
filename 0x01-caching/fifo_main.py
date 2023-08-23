@@ -11,18 +11,20 @@ fifo_cache.put("C", 3)
 fifo_cache.print_cache()
 print("-----")
 
-fifo_cache.print_cache()
-print("-----")
 
-fifo_cache.print_queue()
-print("------")
+# fifo_cache.print_queue()
+# print("------")
 
 # Retrieve items from the cache
 print(fifo_cache.get("A"))  # Output: 1
 print(fifo_cache.get("B"))  # Output: 2
-print(fifo_cache.get("D"))  # Output: None (not in the cache)
 fifo_cache.put("D", 4)
+fifo_cache.print_cache()
+fifo_cache.put("E", 5)
+fifo_cache.print_cache()
+fifo_cache.put("F", 8)
+fifo_cache.print_cache()
 
-print(fifo_cache.get("A"))
-print(fifo_cache.get("B"))
+# print(fifo_cache.get("A"))
+# print(fifo_cache.get("B"))
 

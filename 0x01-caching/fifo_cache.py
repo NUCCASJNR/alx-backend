@@ -16,13 +16,13 @@ class FIFOCache:
 
     def put(self, key, value):
         if len(self.cache) >= self.capacity:
-            # Cache is full, remove the oldest item
-            oldest_key = self.queue.popleft()
-            self.cache.pop(oldest_key)
-        
-        # Add the new item to the cache and the queue
+            if self.queue:
+                oldest_key = self.queue.popleft()
+                self.cache.pop(oldest_key)
+            else:
+                pass
         self.cache[key] = value
-        # self.queue.append(key)
+        self.queue.append(key)
 
     def print_cache(self):
         """print cache"""

@@ -2,7 +2,7 @@
 import csv
 
 # Open the CSV file
-with open('data.csv', 'r') as file:
+with open('Popular_Baby_Names.csv', 'r') as file:
     # Create a CSV reader
     reader = csv.reader(file)
     page = 2
