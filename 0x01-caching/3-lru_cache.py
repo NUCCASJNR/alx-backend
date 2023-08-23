@@ -15,8 +15,7 @@ class LRUCache(BaseCaching):
     """
     def __init__(self):
         super().__init__()
-        self.cache_data = OrderedDict()
-        self.queue = deque()
+        self.data = OrderedDict()
 
     def put(self, key, item):
         """
@@ -29,22 +28,28 @@ class LRUCache(BaseCaching):
             pass
         if key in self.cache_data:
             self.cache_data[key] = item
+            self.data[key] = item
+            self.data.move_to_end(key)
         else:
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-                removed = self.queue.popleft()
-                self.cache_data.pop(removed)
+                # Get the first key from the ordered dict
+                removed = next(iter(self.data))
                 print(f"DISCARD: {removed}")
+                # pop it out from both the ordered dict and the usual dict
+                self.cache_data.pop(removed)
+                self.data.pop(removed)
+            # Add the key-value pair to he two dicts
             self.cache_data[key] = item
-            self.cache_data.move_to_end(key, last=False)
-            self.queue.append(key)
+            self.data[key] = item
+            self.data.move_to_end(key)
 
     def get(self, key):
         """
         Retrieves the value of the key provided from the dict
         Returns none if the key is empty or is not valid key in the dict
         """
-        if key in self.cache_data:
-            self.cache_data.move_to_end(key)
-            return self.cache_data[key]
+        if key is not None and key in self.data:
+            self.data.move_to_end(key)
+            return self.data[key]
         elif not key or key not in self.cache_data:
             return None
