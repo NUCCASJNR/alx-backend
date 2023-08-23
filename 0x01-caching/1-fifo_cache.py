@@ -24,15 +24,18 @@ class FIFOCache(BaseCaching):
             Key: Key to be added
             item: Value of the added key
         """
-        if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-            if self.queue:
-                removed_item = self.queue.popleft()
-                self.cache_data.pop(removed_item)
-                print(f"DISCARD: {removed_item}")
-            else:
-                pass
-        self.cache_data[key] = item
-        self.queue.append(key)
+        if key is None or item is None:
+            pass
+        else:
+            if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+                if key in self.cache_data:
+                    self.cache_data[key] = item
+                else:
+                    removed_item = self.queue.popleft()
+                    self.cache_data.pop(removed_item)
+                    print(f"DISCARD: {removed_item}")
+            self.cache_data[key] = item
+            self.queue.append(key)
 
     def get(self, key):
         """
