@@ -25,7 +25,7 @@ class LRUCache(BaseCaching):
             item: Value of the added key
         """
         if key is None or item is None:
-            pass
+            return
         if key in self.cache_data:
             self.cache_data[key] = item
             self.data[key] = item
