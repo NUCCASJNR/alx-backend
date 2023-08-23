@@ -48,8 +48,8 @@ class LRUCache(BaseCaching):
         Retrieves the value of the key provided from the dict
         Returns none if the key is empty or is not valid key in the dict
         """
-        if key is not None and key in self.data:
+        if key is not None and key in self.cache_data:
             self.data.move_to_end(key)
-            return self.data[key]
+            return self.cache_data[key]
         elif not key or key not in self.cache_data:
             return None
