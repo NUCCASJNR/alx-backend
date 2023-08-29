@@ -11,7 +11,12 @@ app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
-def index():
+def index() -> str:
+    """
+    Index route for the flask app
+    return:
+            renders the 0-index.html file
+    """
     return render_template('0-index.html')
 
 
