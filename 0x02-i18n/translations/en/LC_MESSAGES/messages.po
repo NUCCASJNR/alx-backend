@@ -28,9 +28,9 @@ msgstr "Bonjour monde!"
 
 #: practice/app.py:19
 msgid "Anthony"
-msgstr ""
+msgstr "Antonie"
 
 #: practice/templates/index.html:15
 msgid "computer"
-msgstr ""
+msgstr "ordinateur"
 
