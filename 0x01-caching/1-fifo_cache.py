@@ -36,6 +36,7 @@ class FIFOCache(BaseCaching):
                     print(f"DISCARD: {removed_item}")
             self.cache_data[key] = item
             self.queue.append(key)
+            print(self.queue)
 
     def get(self, key):
         """
