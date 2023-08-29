@@ -31,8 +31,8 @@ def index() -> str:
     Returns:
             The translated text
     """
-    home_title = gettext("Welcome to Holberton")
-    home_header = gettext("Hello world!")
+    home_title = gettext("home_title")
+    home_header = gettext("home_header")
     return render_template('3-index.html', home_title=home_title,
                            home_header=home_header)
 
