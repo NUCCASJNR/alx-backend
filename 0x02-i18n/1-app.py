@@ -18,7 +18,7 @@ app.config.from_object(Config)
 babel = Babel(app)
 
 
-@app.route('/language', strict_slashes=False)
+@app.route('/', strict_slashes=False)
 def index() -> str:
     """
     Index route for the flask app
