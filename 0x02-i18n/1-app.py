@@ -19,7 +19,7 @@ babel = Babel(app)
 
 
 @app.route('/language', strict_slashes=False)
-def index():
+def index() -> str:
     """
     Index route for the flask app
     Return:
