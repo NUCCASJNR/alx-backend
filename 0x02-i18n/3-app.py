@@ -3,7 +3,7 @@
 """Contains a flask app and a babel class"""
 
 from flask import Flask, render_template
-from flask_babel import Babel, gettext, request
+from flask_babel import Babel, request
 
 
 class Config(object):
