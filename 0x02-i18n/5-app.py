@@ -6,9 +6,9 @@ This module contains a user login system
 
 from flask import Flask, render_template, request, g
 from flask_babel import Babel
+from typing import Dict, Union
 
-
-users = {
+users: Dict = {
     1:
         {"name": "Balou",
          "locale": "fr",
@@ -49,7 +49,7 @@ def get_locale() -> str:
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-def get_user():
+def get_user() -> Union[Dict, None]:
     """
     Return a user dictionary or None if the id
     couldn't be found
