@@ -14,3 +14,10 @@
 - Learn how to parametrize Flask templates to display different languages
 - Learn how to infer the correct locale based on URL parameters, user settings or request headers
 - Learn how to localize timestamps
+
+## Having isuues with jinja2 autoescape??
+
+```bash
+pip install Flask==2.1.0
+pip3 install "jinja2<3.1.0"
+```
