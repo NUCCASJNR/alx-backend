@@ -34,3 +34,5 @@ msgstr "Anthony"
 msgid "computer"
 msgstr "computer"
 
+msgid "logged_in_as"
+msgstr "You are logged in as %(username)s."
