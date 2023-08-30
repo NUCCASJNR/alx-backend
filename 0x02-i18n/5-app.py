@@ -6,6 +6,7 @@ This module contains a user login system
 
 from flask import Flask, render_template, request, g
 from flask_babel import Babel
+from typing import Dict, Union
 
 users = {
     1:
@@ -40,7 +41,7 @@ babel = Babel(app)
 
 
 @babel.localeselector
-def get_locale() -> str:
+def get_locale() -> str | None:
     """Translates to the best match language"""
     locale = request.args.get('locale')
     if locale:
@@ -48,7 +49,7 @@ def get_locale() -> str:
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-def get_user():
+def get_user() -> Union[Dict[str, str], None]:
     """
     Return a user dictionary or None if the id
     couldn't be found
