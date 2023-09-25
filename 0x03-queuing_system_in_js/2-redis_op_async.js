@@ -26,12 +26,13 @@ const displaySchoolValue = async (schoolName) => {
     console.log(`${response}`);
   } catch (err) {
     console.error(`Redis Error: ${err}`);
-  } finally {
-    client.quit();
   }
 };
 
-// Call the functions to interact with Redis
-displaySchoolValue('Holberton');
-setNewSchool('HolbertonSanFrancisco', '100');
-displaySchoolValue('HolbertonSanFrancisco');
+const main = async () => {
+  await displaySchoolValue('Holberton');
+  setNewSchool('HolbertonSanFrancisco', '100');
+  await displaySchoolValue('HolbertonSanFrancisco');
+  client.quit();
+};
+main();
