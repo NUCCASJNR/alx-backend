@@ -37,5 +37,3 @@ job.save((err) => {
     console.log('Job saved to the queue');
   }
 });
-
-queue.shutdown();
